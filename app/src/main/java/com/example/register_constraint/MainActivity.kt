@@ -2,7 +2,6 @@ package com.example.register_constraint
 
 import android.widget.Toast
 import android.content.Context
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -11,7 +10,6 @@ import android.widget.RadioButton
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -64,16 +62,7 @@ class MainActivity : AppCompatActivity() {
         address: String,
         email: String,
         selectcheckbox: Boolean):Boolean{
-        if (firstname.isNotEmpty() ||
-            lastname.isNotEmpty() ||
-            seclectradio1 == false ||
-            selectradio2 == false ||
-            selectradio3 == false ||
-            birthday.isNotEmpty() ||
-            address.isNotEmpty() ||
-            email.isNotEmpty() ||
-            selectcheckbox == false)
-            return false
-        else return true
+        return !(firstname.isNotEmpty() ||
+                lastname.isNotEmpty() || !seclectradio1 || !selectradio2 || !selectradio3 || birthday.isNotEmpty() || address.isNotEmpty() || email.isNotEmpty() || !selectcheckbox)
     }
 }
